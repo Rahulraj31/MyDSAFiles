@@ -1,13 +1,13 @@
-//           Custom Single Linked List and its operation 
+//           Custom Circular Linked List and its operation 
 
-package LinkedList.Single_LL;
+package LinkedList.Circular_LL;
 
-public class LL{
+public class CLL{
 
     // node template nested class
     private class Node{
         private int value;
-        private Node next;    // by deafult points null
+        private Node next;    
     
         public Node(int val){
             this.value = val;
@@ -24,67 +24,47 @@ public class LL{
     private Node tail;
     private int size ;
 
-    public LL(){
+    public CLL(){
         this.size=0;
     }
 
 
     // -----------------------------------------------------------------
 
+    // Inserting element at the ends (First == last)
+    public void insert(int val){
+        Node node= new Node(val);
+        if(head==null){
+            head=node;
+            tail=node;
+            return;
+        }
+        tail.next =node;
+        node.next=head;
+        tail=node;
+        size++;
+    }
     
 
 
-    // == Inserting at First in Linked list == 
-
-    public void insertFirst(int val){
-        // creat new node
-        Node node = new Node(val);
-        node.next = head;
-        head=node;
-
-        if(tail==null){  //means 1st item is being added
-            tail=head;
-        }
-        size+=1;
-    }
-
-    // == Inserting at Last in Linked list == 
-
-    public void insertLast(int val){
-        
-        //If the element going to be added will be first
-        if(tail==null){ 
-            insertFirst(val);
-            return;
-        }
-        // creat new node
-        Node node = new Node(val);
-        tail.next = node;
-        tail=node;
-
-        size+=1;
-    }
-
+    
 
     // === Insert At any index ===
 
     public void InsertIndex(int val, int index) {
-        if(index==0){
-            insertFirst(val);
+        if(index==0 || index==size){
+            insert(val);
             return;
         }
 
-        if(index==size){
-            insertLast(val);
-            return;
-        }
+        
 
         Node temp = head;
         for(int i=1; i<index; i++){
             temp =temp.next;
         }
 
-        Node Newnode = new Node(val, temp.next);  // Newnode.next=temp.next;
+        Node Newnode = new Node(val, temp.next); 
         
         temp.next=Newnode; 
         size++;
@@ -183,7 +163,7 @@ public class LL{
 
     public void display(){
         Node temp =  head;
-        while(temp != null){
+        while(temp != tail){
            System.out.print(temp.value + "-> ");
            temp=temp.next;
         }
