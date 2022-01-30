@@ -7,16 +7,14 @@ public class Main {
         list.insert(2);
         list.insert(4);
         list.insert(6);
-        // list.InsertIndex(100, 2);
-        list.display();
-        System.out.println("Add and Value at index 3 :- "+ list.getAdd(3) +" , "+list.getVal(3));
-        System.out.println("Value deleted- "+ list.deleteFirst());
+        list.InsertIndex(100, 2);
         list.display();
         list.size();
+        list.deleteFirst();
         list.deleteLast();
-        list.display();
-        list.deleteIndex(1);
-        list.display();
+        // list.display();
+         list.deleteIndex(2); 
+         list.display();
         
     }
 }

@@ -37,6 +37,7 @@ public class CLL{
         if(head==null){
             head=node;
             tail=node;
+            size++;
             return;
         }
         tail.next =node;
@@ -46,19 +47,14 @@ public class CLL{
     }
     
 
-
-    
-
     // === Insert At any index ===
 
     public void InsertIndex(int val, int index) {
         if(index==0 || index==size){
             insert(val);
+            size++;
             return;
         }
-
-        
-
         Node temp = head;
         for(int i=1; i<index; i++){
             temp =temp.next;
@@ -104,14 +100,15 @@ public class CLL{
 
     // === Delete First ===
 
-    public int deleteFirst() {
-        int val = head.value;
+    public void deleteFirst() {     
         head=head.next;
-        if(head==null){  // means if LL has only 1 element
-            tail=null;
-        }
+        // if(head==tail){  // means if LL has only 1 element
+        //     tail=null;
+        //     head=null;
+        // }
+
+        tail.next = head;
         size--;
-        return val;
     }
 
     // === Delete Last ===
@@ -122,7 +119,7 @@ public class CLL{
            temp=temp.next;
        }
        tail=temp;
-       tail.next=null;
+       tail.next=head;
        size--;
     }
 
@@ -163,11 +160,22 @@ public class CLL{
 
     public void display(){
         Node temp =  head;
+
+
+        /* This is one way to do 
         while(temp != tail){
            System.out.print(temp.value + "-> ");
            temp=temp.next;
         }
-
-        System.out.println("End");
+        Best way is this - */
+        if(head != null){
+            do {
+                System.out.print(temp.value + "-> ");
+                temp=temp.next;
+                
+            } while (temp !=head);
+            System.out.println("Head");
+        }
+        
     }
 }
