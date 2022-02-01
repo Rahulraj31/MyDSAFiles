@@ -1,5 +1,7 @@
 //           Custom Single Linked List and its operation 
 
+//  Recursion Insertion in the list
+
 package LinkedList.Single_LL;
 
 public class LL{
@@ -189,5 +191,20 @@ public class LL{
         }
 
         System.out.println("End");
+    }
+
+    // Recursive Insertion in LL 
+
+    public void insertRec(int val, int index){
+        head=insertRec(val, index,head);
+    }
+    private Node insertRec(int val, int index, Node Anode){     //here Anode is the next index node of the inserted node
+        if( index==0 ){
+            Node temp= new Node(val, Anode);
+            size++;
+            return temp;
+        }
+        Anode.next=insertRec(val, index--, Anode.next);
+        return Anode;
     }
 }
