@@ -1,6 +1,9 @@
-//           Custom Single Linked List and its operation 
+//                               === Custom Single Linked List and its operation (insert, delete, display, size)  ====
 
-//  Recursion Insertion in the list
+/*  Other Topic:- 
+ 1. Recursion Insertion in the list
+ 2. Recursion Reversal of list  [1:47:28] https://www.youtube.com/watch?v=70tx7KcMROc&t=6199s
+*/
 
 package LinkedList.Single_LL;
 
@@ -123,9 +126,7 @@ public class LL{
         return null;
     }
 
-
     // === Delete First ===
-
     public int deleteFirst() {
         int val = head.value;
         head=head.next;
@@ -180,9 +181,7 @@ public class LL{
         System.out.println("The size of Linked List is "+this.size);
     }
 
-
     // Display LL
-
     public void display(){
         Node temp =  head;
         while(temp != null){
@@ -193,8 +192,9 @@ public class LL{
         System.out.println("End");
     }
 
-    // Recursive Insertion in LL 
 
+
+    // Recursive Insertion in LL 
     public void insertRec(int val, int index){
         head=insertRec(val, index,head);
     }
@@ -207,4 +207,20 @@ public class LL{
         Anode.next=insertRec(val, index--, Anode.next);
         return Anode;
     }
+
+    // Recursive Reversal of LL 
+    public void recurReverse(Node node){
+        if(node==tail){
+            head=tail;
+            return;
+        }
+
+        recurReverse(node.next);
+        tail.next=node;
+        tail=node;
+        tail.next = null;
+    }
+                   
+
 }
+

@@ -12,7 +12,6 @@ public class Main {
         list.size();
         list.deleteFirst();
         list.deleteLast();
-        // list.display();
          list.deleteIndex(2); 
          list.display();
         

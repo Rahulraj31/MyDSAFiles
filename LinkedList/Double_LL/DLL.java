@@ -1,4 +1,4 @@
-//           Custom DOuble Linked List and its operation 
+//           Custom Double Linked List and its operation (w/o tail)
 
 package LinkedList.Double_LL;
 
@@ -16,10 +16,9 @@ public class DLL{
         
     }
     
-    // making head and tail nodes they will also have next and prev
+    // making head nodes they will also have next and prev
 
     private Node head;
-    private Node tail;
     private int size ;
 
     public DLL(){
@@ -137,9 +136,6 @@ public class DLL{
     public int deleteFirst() {
         int val = head.value;
         head=head.next;
-        if(head==null){  // means if LL has only 1 element
-            tail=null;
-        }
         size--;
         return val;
     }
@@ -151,8 +147,7 @@ public class DLL{
        for(int i=1; i<size-1; i++){ // iterate to 2nd last element
            temp=temp.next;
        }
-       tail=temp;
-       tail.next=null;
+       temp.next=null;
        size--;
     }
 

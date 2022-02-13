@@ -17,6 +17,6 @@ public class Main {
         list.display();
         list.deleteIndex(1);
         list.display();
-        
+
     }
 }
