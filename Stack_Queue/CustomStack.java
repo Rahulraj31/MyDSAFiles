@@ -22,7 +22,7 @@ public class CustomStack {
     //-------------- Operations ------------------
     
     public boolean isFull(){
-        return (ptr == data.length - 1);
+        return (ptr == data.length);
     }
     public boolean isEmpty(){
         return (ptr == -1);
@@ -54,12 +54,13 @@ public class CustomStack {
         return data[ptr];
     }
 
+    // Display Stack
     public void display(){
         for(int i = ptr; i > -1; i--){
             System.out.print(data[i] + " ");
         }
     }
-
+//-----------------------------------------
 
     public static void main(String[] args) throws Exception {
         CustomStack stack =  new CustomStack(5);
