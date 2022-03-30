@@ -47,7 +47,7 @@ public class RowCol_sortedMatrix_BinarySearch {
                row++;  // eliminate row as then that element wont be present in that whole column
             }
             else{
-                col--;  // increase col
+                col--;  // element is bigger than target ; decrease col
             }
         }
 
